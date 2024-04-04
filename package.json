@@ -1,21 +1,22 @@
 {
   "name": "whackbox",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "socket.io": "^4.7.4",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
-  }
+    "nodemon": "^3.1.0"
+  },
+  "description": ""
 }
