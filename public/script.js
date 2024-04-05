@@ -94,6 +94,33 @@ function startGame() {
   }
 }
 
+function startGame1() {
+  const ROOM_ID = getRoomId();
+  if (ROOM_ID) {
+      socket.emit('start-game1', ROOM_ID);
+  } else {
+      console.error('Room ID is null');
+  }
+}
+
+function startGame2() {
+  const ROOM_ID = getRoomId();
+  if (ROOM_ID) {
+      socket.emit('start-game2', ROOM_ID);
+  } else {
+      console.error('Room ID is null');
+  }
+}
+
+function startGame3() {
+  const ROOM_ID = getRoomId();
+  if (ROOM_ID) {
+      socket.emit('start-game3', ROOM_ID);
+  } else {
+      console.error('Room ID is null');
+  }
+}
+
 
 // Listener for navigation to the games page
 socket.on('navigate-to-games', (roomId) => {
@@ -103,3 +130,40 @@ socket.on('navigate-to-games', (roomId) => {
       console.error('Received null Room ID for navigation');
   }
 });
+
+socket.on('navigate-to-game1', (roomId) => {
+  if (roomId) {
+      window.location.href = `/game1?roomId=${roomId}`;
+  } else {
+      console.error('Received null Room ID for navigation');
+  }
+});
+
+socket.on('navigate-to-game2', (roomId) => {
+  if (roomId) {
+      window.location.href = `/game2?roomId=${roomId}`;
+  } else {
+      console.error('Received null Room ID for navigation');
+  }
+});
+
+socket.on('navigate-to-game3', (roomId) => {
+  if (roomId) {
+      window.location.href = `/game3?roomId=${roomId}`;
+  } else {
+      console.error('Received null Room ID for navigation');
+  }
+});
+
+// document.getElementById("game1-button").addEventListener("click", function() {
+//   socket.emit('navigate-to-game1'); 
+// });
+
+// document.getElementById("game2-button").addEventListener("click", function() {
+//   socket.emit('navigate-to-game2'); 
+ 
+// });
+
+// document.getElementById("game3-button").addEventListener("click", function() {
+//   socket.emit('navigate-to-game3'); 
+// });

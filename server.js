@@ -15,6 +15,18 @@ app.get('/games', (req, res) => {
     res.render('games', { title: 'Games' });
 });
 
+app.get('/game1', (req, res) => {           //added route for games 1-3
+    res.render('game1');
+});
+
+app.get('/game2', (req, res) => {
+    res.render('game2');
+});
+
+app.get('/game3', (req, res) => {
+    res.render('game3');
+});
+
 app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room });
 });
@@ -25,8 +37,20 @@ io.on('connection', socket => {
         socket.join(roomId);
         socket.broadcast.to(roomId).emit('user-connected', userId);
 
-        socket.on('start-game', () => {
+        socket.on('start-game', () => {                         //added individual game navigation
             io.in(roomId).emit('navigate-to-games', roomId);
+        });
+
+        socket.on('start-game1', () => {
+            io.in(roomId).emit('navigate-to-game1', roomId);
+        });
+
+        socket.on('start-game2', () => {
+            io.in(roomId).emit('navigate-to-game2', roomId);
+        });
+
+        socket.on('start-game3', () => {
+            io.in(roomId).emit('navigate-to-game3', roomId);
         });
     });
 
@@ -44,3 +68,4 @@ const port = process.argv[2] || 3000;
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 }); 
+
