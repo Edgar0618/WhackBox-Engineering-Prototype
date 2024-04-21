@@ -5,4 +5,4 @@ CURRENT ISSUE: people are on game page, need to make the actual trivia game
 
 -add functionality, add questions that get pulled from a database
 
-
+-fix names so they stick to each camera throughout all the games until disconnect
