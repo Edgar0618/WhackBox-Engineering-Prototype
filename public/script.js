@@ -330,7 +330,82 @@ socket.on('hide-button', function() {
   }
 });
 
+// Add the dice images and functions from dice.js
+const diceImages = [
+    "https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b8/Alea_2.png",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2f/Alea_3.png",
+    "https://upload.wikimedia.org/wikipedia/commons/8/8d/Alea_4.png",
+    "https://upload.wikimedia.org/wikipedia/commons/5/55/Alea_5.png",
+    "https://upload.wikimedia.org/wikipedia/commons/2/26/Dice-6-b.svg" 
+];
 
+let previousRoll = 0;
+
+function rollDice() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+function displayDice(roll) {
+    const diceElement = document.getElementById('dice');
+    diceElement.src = diceImages[roll - 1]; 
+    diceElement.alt = `Dice ${roll}`;
+    diceElement.dataset.value = roll;
+
+    const resultElement = document.getElementById('result');
+    resultElement.innerText = `Result: ${roll}`; 
+}
+
+function guess(direction) {
+    let counter = 0;
+    const statusElement = document.getElementById('status');
+    const gameMessage = document.getElementById('game-message');
+    const higherButton = document.querySelector('.Higher');
+    const lowerButton = document.querySelector('.Lower');
+
+    higherButton.disabled = true;
+    lowerButton.disabled = true;
+    statusElement.innerText = "Rolling...";
+    gameMessage.innerText = "";
+
+    clearInterval(window.diceRollingInterval);
+
+    // window.diceRollingInterval = setInterval(function() {
+    //     counter++;
+    //     const tempRoll = rollDice();
+    //     displayDice(tempRoll);
+
+    window.diceRollingInterval = setInterval(() => {
+        const tempRoll = rollDice();
+        displayDice(tempRoll);
+        counter++;
+        console.log("Roll count:", counter, "Dice roll:", tempRoll); // Debugging output
+
+        if (counter >= 15) {
+            clearInterval(window.diceRollingInterval);
+            const finalRoll = rollDice();
+            displayDice(finalRoll);
+            statusElement.innerText = `Rolled: ${finalRoll}`;
+
+            if ((direction === 'h' && finalRoll > previousRoll) ||
+                (direction === 'l' && finalRoll < previousRoll)) {
+                gameMessage.innerText = 'Correct! You win.';
+                gameMessage.style.color = 'green';
+            } else {
+                gameMessage.innerText = 'Incorrect. You lose.';
+                gameMessage.style.color = 'red';
+            }
+
+            previousRoll = finalRoll;
+            higherButton.disabled = false;
+            lowerButton.disabled = false;
+        }
+    }, 150);
+}
+
+function goToGameSelection() {
+    window.location.href = '/games';
+}
 
 function endGame() {
   const triviaGameContainer = document.getElementById('trivia-game');
