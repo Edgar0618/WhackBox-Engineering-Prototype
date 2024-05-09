@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game 3 - Roll the Dice</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css"> <!-- Style for dice game -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    h1 {
+        text-align: center;
+        margin-left: 20px;
+    }
+</style>
+<body>
+    <h1>Games 3 - Dice Game</h1>
+
+    <div class="banner">Welcome to Dice</div>
+    <div id="video-grid">
+        <!-- Videos will be inserted here -->
+    </div>
+    <div class="center-container">
+        <div id="game-message" class="game-message"></div>
+        <div id="status" class="status"></div>
+        <div class="dice-container">
+            <img id="dice" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" alt="Dice showing 1">
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="goToGameSelection()">Back to Game Selection</button>
+            <button class="button Higher" onclick="guess('h')">Higher</button>
+            <button class="button Lower" onclick="guess('l')">Lower</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="dice.js"></script> <!-- Ensure dice game script is included -->
+</body>
+</html>
