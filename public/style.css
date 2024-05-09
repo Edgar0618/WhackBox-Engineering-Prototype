@@ -1,0 +1,252 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Styles for nav bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.Background {
+    display: block;
+    padding: 0%;
+    object-fit: cover;
+    background: url(assets/Background.gif) repeat;
+    background-size: 393px 69px;
+    height: 400px;
+}
+
+#WelcomeContainer {
+    color: #000000;
+    max-width: 45%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #FFF;
+    border-radius: .375rem;
+    box-shadow: 0 19px 38px rgba(15,23,42,.3),0 15px 12px rgba(15,23,42,.22);
+}
+
+.Lobby {
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Styles for where videos are presented */
+#video-grid {
+    padding-top: 40px;
+    padding-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-auto-rows: 300px;
+}
+
+video {
+    width: 200px;
+    height: 200px;
+    justify-content: cover;
+    border-style: solid;
+}
+
+/* Add styles for the Start Game button container */
+div.start-game-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* High z-index to bring the button to the front */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Reset and basic setups */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* General Styles */
+body {
+    background-color: #212529; 
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #ffd700;
+    font-family: 'Trebuchet MS', sans-serif; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Styles */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+/* Animation for Dice */
+#dice {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: rollDiceAnimation 2s infinite;
+}
+
+@keyframes rollDiceAnimation {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    50% { transform: rotateX(180deg) rotateY(180deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Dice Game Styles */
+.center-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #28a745; 
+    color: #dc3545; 
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 5px solid #dc3545;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545; 
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #c82333; 
+}
+
+/* Video Grid and Welcome Styles */
+#video-grid, .Background, #WelcomeContainer, .Lobby {
+    /* Styles specific to video grid and welcome sections */
+}
+
+/* Video Element Styles */
+video {
+    width: 200px;
+    height: 200px;
+    justify-content: cover;
+    border-style: solid;
+}
+
+/* Start Game Button Styles */
+div.start-game-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Button Styles - General */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
